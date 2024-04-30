@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3">
       <div class="mb-2">
-        <input type="email" class="form-control" id="input1" aria-describedby="emailHelp" placeholder="Search"
+        <input type="text" class="form-control" id="input1" aria-describedby="emailHelp" placeholder="Search"
           #searchInput (keyup)="search(searchInput.value)">
       </div>
     </div>
@@ -22,7 +22,7 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let user of userDetails | userFilterPipe: filterData | paginate: { itemsPerPage: pageSize, currentPage: currentPage } ">
+        *ngFor="let user of userDetails | userFilterPipe: filterData | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
         <th scope="row">{{user.rollNo}}</th>
         <td>{{user.name}}</td>
         <td>{{user.class}}</td>

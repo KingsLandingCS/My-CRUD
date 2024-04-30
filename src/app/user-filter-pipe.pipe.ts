@@ -6,17 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class UserFilterPipePipe implements PipeTransform {
 
   transform(value: any[], filterData: any): any[] {
-    const searchTerm = filterData;
+    const searchTerm = filterData.toUpperCase();
     console.log(value);
     console.log(searchTerm);
-    return value.filter(
-      (user: any) =>
-        user.name.toLowerCase().includes(searchTerm) ||
-        user.class.toLowerCase().includes(searchTerm) ||
-        user.section.toLowerCase().includes(searchTerm) ||
-        user.progress.toLowerCase().includes(searchTerm) ||
-        user.marks.toLowerCase().includes(searchTerm) ||
-        user.school.toLowerCase().includes(searchTerm)
+    return value.filter((user: any) =>
+        user.name.includes(searchTerm) ||
+        user.class.toString().includes(searchTerm) ||
+        user.section.includes(searchTerm) ||
+        user.progress.toString().includes(searchTerm) ||
+        user.marks.toString().includes(searchTerm) ||
+        user.school.includes(searchTerm)
     );
   }
 }

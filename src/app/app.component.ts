@@ -8,7 +8,7 @@ import { ProductDataServiceService } from './shared/product-data-service.service
 })
 export class AppComponent {
   title = 'My-CRUD';
-  public filterData: any[] = [];
+  public filterData: any = '';
   public pageSize: number = 4;
   public currentPage: number = 1;
   public userDetails: any = []
