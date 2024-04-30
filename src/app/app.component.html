@@ -12,6 +12,7 @@
       <tr class="bg-primary">
         <th scope="col">Roll no.</th>
         <th scope="col">Name</th>
+        <td scope="col">Student Profile Card</td>
         <th scope="col">Class</th>
         <th scope="col">Section</th>
         <th scope="col">Progress</th>
@@ -25,14 +26,18 @@
         *ngFor="let user of userDetails | userFilterPipe: filterData | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
         <th scope="row">{{user.rollNo}}</th>
         <td>{{user.name}}</td>
+        <td><img src="{{user.image}}" alt="" height="64" width="64"></td>
         <td>{{user.class}}</td>
         <td>{{user.section}}</td>
         <td>{{user.progress}}</td>
-        <td>{{user.marks}}</td>
+        <td class="box" [ngClass]="user.marks <= 50 ? 'red' : (user.marks <= 70 ? 'blue' : 'green')">{{user.marks}}</td>
         <td>{{user.school}}</td>
         <td>
-          <button type="button" class="btn btn-outline-primary">Update</button>
-          <button type="button" class="btn btn-outline-danger ms-2">Delete</button>
+          <div *ngIf="!isEdit" (click)="editTable()"><button type="button" class="btn btn-outline-primary">Edit</button>
+          </div>
+          <div *ngIf="isEdit"><button type="button" class="btn btn-outline-primary">Update</button>
+            <button type="button" class="btn btn-outline-danger ms-2">Delete</button>
+          </div>
         </td>
       </tr>
 

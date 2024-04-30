@@ -1,0 +1,25 @@
+.red {
+  color: #fff;
+  background: red;
+}
+
+.blue {
+  color: #fff;
+  background: blue;
+}
+
+.green {
+  color: #fff;
+  background: green;
+}
+
+.box {
+  width: 74%;
+  height: 34px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 800;
+}

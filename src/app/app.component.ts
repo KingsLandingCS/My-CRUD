@@ -12,16 +12,23 @@ export class AppComponent {
   public pageSize: number = 4;
   public currentPage: number = 1;
   public userDetails: any = []
+  public isEdit: boolean = false;
   constructor(private readonly userDataService: ProductDataServiceService) {
     this.getAllUserData();
   }
 
   getAllUserData() {
     this.userDetails = this.userDataService.userData.map((data: any) => data);
+    console.log(this.userDetails);
   }
 
   search(e: any) {
     this.filterData = e;
     console.log(this.filterData);
   }
+
+  editTable() {
+    this.isEdit = true;
+  }
+
 }
